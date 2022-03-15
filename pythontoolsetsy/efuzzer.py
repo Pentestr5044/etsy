@@ -1,5 +1,5 @@
 #imports first
-import os
+import time
 import threading
 import urllib3
 import certifi
@@ -65,9 +65,11 @@ def directoryBust(arg):
                         print("found"+r.status+r.url)
                 except urllib3.exceptions.NewConnectionError:
                     print()
+                time.sleep(2)
     pass
 
 #function 3 iteration and threading
 for i in range(threads):
     t = threading.Thread(target=directoryBust(attack_field))
     t.start()
+    time.sleep(2)
